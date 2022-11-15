@@ -1,11 +1,12 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="utf-8">
    <title>Lab 8</title>
    <link rel="stylesheet" type="text/css" href="index.css" />
+   
+   
 </head>
 <body>
     <p> Remi Gendron<br>Kato Ng</p>
@@ -18,19 +19,25 @@
     <body>
         <main>
             <div>
-                <h1>Basic Song Search</h1>
-                <input type=radio id="search"><label>Title</label>
-                <input type="search"><br>
-                <input type=radio id="search"><label>Artist</label>
-                <select>
-                    <option></option>
-                </select><br>
-                <input type=radio id="search"><label>Genre</label>
-                <select>
-                    <option></option>
-                </select><br>
-                <input type=button onclick="" value="Clear">
-                <input type=button onclick="" value="Filter">
+                    <form id ="form">
+                        <h1>Basic Song Search</h1>
+                        <input type=radio id="search"><label>Title</label>
+                        <input type="search" id="title" placeholder="Type here"><br>
+                        <input type=radio id="search" ><label>Artist</label>
+                        <select id="artist">
+                            <!-- Option here-->
+                            <option value="none" selected disabled hidden>Pick me</option>
+                        </select><br>
+                        <input type=radio id="search"><label>Genre</label>
+                        <select id="genre">
+                            <!-- Option here-->
+                            <option value="none" selected disabled hidden>Pick me</option>
+                        </select><br>
+
+                        <input id="filter" type=button onclick="" value="Filter">
+                        <input id="clear" type=button onclick="" value="Clear">
+                        
+                    </form>
             </div>
             <div>
                 <h1>Browse/Search Results</h1>
@@ -52,6 +59,11 @@
                 </table>
             </div>
         </main>
+        <script src="files/artists.json"></script>
+        <script src="files/genres.json"></script>
+        <script src="files/sample-songs.json"></script>
+        <script src="files/assign2.js"></script>
+        <script src="files/index.js"></script>
     </body>
     <footer>
         Footer
