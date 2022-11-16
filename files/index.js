@@ -58,6 +58,32 @@ function searchArtist(songy){
 function searchGenre(songy){
     return songy.genre.name == enabled.value;
 }
+function artistList(){
+        for(let art of artist){
+            const artLi = document.getElementById("artist");
+            const opt = document.createElement("option");
+
+            opt.text = art.name;
+            artLi.add(opt);
+        }
+}
+
+function genreList(){
+    for(let genres of genre){
+        const genLi = document.getElementById("genre");
+        const opt = document.createElement("option");
+
+            opt.text = genres.name;
+            genLi.add(opt);
+        }
+}
+
+//Change this to take the song api thing 
+
+artistList();
+genreList();
+
+// Trying to make the filter work
 // function filter(event) {
 //     console.log("hello");
 //   }
