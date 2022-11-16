@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>Lab 8</title>
+   <link rel="stylesheet" type="text/css" href="index.css" />
+   
+   
+</head>
+<body>
+</body>
+    <header>
+        Header
+        <input type=button onclick="" value="Playlist">
+        <input type=button value="Credits">
+        <div class="credit"> Remi Gendron<br>Kato Ng<br><a href="https://github.com/rgend797/COMP3512-Assignment-2">Github</a></div>
+    </header>
+    <body>
+        <main>
+            <div>
+                    <form id ="form">
+                        <h1>Basic Song Search</h1>
+                        <input type=radio name="s" id="search"><label>Title</label>
+                        <input type="search" id="title" placeholder="Type here" disabled><br>
+                        <input type=radio name="s" id="search" ><label>Artist</label>
+                        <select id="artist" disabled>
+                            <!-- Option here-->
+                            <option value="none" selected disabled hidden>Pick me</option>
+                        </select><br>
+                        <input type=radio name="s" id="search"><label>Genre</label>
+                        <select id="genre" disabled>
+                            <!-- Option here-->
+                            <option value="none" selected disabled hidden>Pick me</option>
+                        </select><br>
+
+                        <input id="filter" type=button onclick="" value="Filter">
+                        <input id="clear" type=button onclick="" value="Clear">
+                        
+                    </form>
+            </div>
+            <div>
+                <h1>Browse/Search Results</h1>
+                <table>
+                    <thead>
+                    <tr id="table">
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Year</th>
+                        <th>Genre</th>
+                        <th>Popularity</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <div id="results">
+                    </div>
+                </table>
+            </div>
+        </main>
+        <script src="files/artists.json"></script>
+        <script src="files/genres.json"></script>
+        <script src="files/sample-songs.json"></script>
+        <script src="files/assign2.js"></script>
+        <script src="files/index.js"></script>
+    </body>
+    <footer>
+        Footer
+    </footer>
+</html>
