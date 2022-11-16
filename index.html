@@ -9,27 +9,27 @@
    
 </head>
 <body>
-    <p> Remi Gendron<br>Kato Ng</p>
 </body>
     <header>
         Header
         <input type=button onclick="" value="Playlist">
-        <input type=button onclick="" value="Credits">
+        <input type=button value="Credits">
+        <div class="credit"> Remi Gendron<br>Kato Ng<br><a href="https://github.com/rgend797/COMP3512-Assignment-2">Github</a></div>
     </header>
     <body>
         <main>
             <div>
                     <form id ="form">
                         <h1>Basic Song Search</h1>
-                        <input type=radio id="search"><label>Title</label>
-                        <input type="search" id="title" placeholder="Type here"><br>
-                        <input type=radio id="search" ><label>Artist</label>
-                        <select id="artist">
+                        <input type=radio name="s" id="search"><label>Title</label>
+                        <input type="search" id="title" placeholder="Type here" disabled><br>
+                        <input type=radio name="s" id="search" ><label>Artist</label>
+                        <select id="artist" disabled>
                             <!-- Option here-->
                             <option value="none" selected disabled hidden>Pick me</option>
                         </select><br>
-                        <input type=radio id="search"><label>Genre</label>
-                        <select id="genre">
+                        <input type=radio name="s" id="search"><label>Genre</label>
+                        <select id="genre" disabled>
                             <!-- Option here-->
                             <option value="none" selected disabled hidden>Pick me</option>
                         </select><br>
@@ -42,20 +42,18 @@
             <div>
                 <h1>Browse/Search Results</h1>
                 <table>
-                    <tr>
+                    <thead>
+                    <tr id="table">
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Year</th>
                         <th>Genre</th>
                         <th>Popularity</th>
                     </tr>
-                    <tr>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                        <td>Sample</td>
-                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <div id="results">
+                    </div>
                 </table>
             </div>
         </main>

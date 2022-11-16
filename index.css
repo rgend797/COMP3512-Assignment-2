@@ -20,3 +20,9 @@ input[type="search"], select {
 div {
     width: 100%;
 }
+.credit {
+    display: none;
+}
+input:hover + .credit, .credit:hover {
+    display: block;
+}
