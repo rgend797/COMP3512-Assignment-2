@@ -4,11 +4,14 @@ const songs = JSON.parse(songsContent);
 const songy = JSON.parse(getFile);
 let enabled = null;
 let list = [];
+let count = 0;
+let counts = 10;
 const a = document.querySelector("tbody");
 const table = document.querySelector("table")
+
 // Below here is the search stuff 
 document.addEventListener("DOMContentLoaded", function () {
-    
+    //Filter
 document.querySelector("#form").addEventListener("change", function (e) {
     if(e.target.id == "search"){
         console.log(e.target);
@@ -19,16 +22,14 @@ document.querySelector("#form").addEventListener("change", function (e) {
         enabled = e.target.nextElementSibling.nextElementSibling;
     }
 });
-    
+
+    //Filter
 document.querySelector("#filter").addEventListener("click", function () {
     if(enabled.parentElement.parentElement && enabled.value != ""){
-    //let value = enabled;
-        
-        
         
     if(enabled.id == "title"){
         console.log("title");
-        list = songy.filter(searchTitle);
+        list = songy.filter(searchTitle); 
     }
     else if(enabled.id == "artist"){
          console.log("artist");
@@ -49,15 +50,188 @@ document.querySelector("#filter").addEventListener("click", function () {
     a.innerHTML = result;
     }
 });
+
+// Sort 
+document.querySelector("#table").addEventListener("click", function(e){
+
+    let result = "";
+    
+    if(e.target.id == 'title'){
+        
+        if(count == 0){
+            
+            list.sort(function(a,b){ 
+                if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                    return -1;
+                  }
+                  if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 1;
+
+        } else if (count == 1){
+            list.sort(function(a,b){ 
+                if (b.title.toLowerCase() < a.title.toLowerCase()) {
+                    return -1;
+                  }
+                  if (b.title.toLowerCase() > a.title.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 0;
+
+        }
+
+    } else if(e.target.id == 'artist'){
+
+        if(count == 0){
+
+            list.sort(function(a,b){ 
+                if (a.artist.name.toLowerCase() < b.artist.name.toLowerCase()) {
+                    return -1;
+                  }
+                  if (a.artist.name.toLowerCase() > b.artist.name.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 1;    
+        } else if (count == 1){
+            list.sort(function(a,b){ 
+                if (b.artist.name.toLowerCase() < a.artist.name.toLowerCase()) {
+                    return -1;
+                  }
+                  if (b.artist.name.toLowerCase() > a.artist.name.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 0;
+
+        }
+
+    } else if(e.target.id == 'year'){
+        
+        if(count == 0){
+            list.sort(function(a,b){ return b.year - a.year});
+            sorting();
+            count = 1;
+        } else if (count == 1){
+            list.sort(function(a,b){ return a.year - b.year});
+            sorting();
+            count = 0;
+        }
+        
+       
+    } else if(e.target.id == 'genre'){
+        
+        if(count == 0){
+            list.sort(function(a,b){ 
+                if (a.genre.name.toLowerCase() < b.genre.name.toLowerCase()) {
+                    return -1;
+                  }
+                  if (a.genre.name.toLowerCase() > b.genre.name.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 1;
+        } else if (count == 1){
+            list.sort(function(a,b){ 
+                if (b.genre.name.toLowerCase() < a.genre.name.toLowerCase()) {
+                    return -1;
+                  }
+                  if (b.genre.name.toLowerCase() > a.genre.name.toLowerCase()) {
+                    return 1;
+                  }
+                  return 0;
+                });
+            sorting();
+            count = 0;
+
+        }
+    } else if(e.target.id == 'popularity'){
+
+        if(count == 0){
+            list.sort(function(a,b){ 
+                if (a.details.popularity < b.details.popularity) {
+                    return -1;
+                  }
+                  if (a.details.popularity > b.details.popularity) {
+                    return 1;
+                  }
+                  return 0;
+                });
+
+            sorting();
+            count = 1;
+        } else if (count == 1){
+            list.sort(function(a,b){ 
+                if (b.details.popularity < a.details.popularity) {
+                    return -1;
+                  }
+                  if (b.details.popularity > a.details.popularity) {
+                    return 1;
+                  }
+                  return 0;
+                });
+            sorting();
+            count = 0;
+        }
+
+    } 
+
+    function sorting(){
+        
+        if(list.length < 10){
+            counts = list.length;    
+        }
+
+        for(let i = 0; i < list.length; i++){
+            result += "<tr><td>" + list[i].title + "</td><td>" + list[i].artist.name + "</td><td>" + list[i].year + "</td><td>" + list[i].genre.name + "</td><td>" + list[i].details.popularity + "</td></tr>";
+        } 
+    }
+    
+    a.innerHTML = (result);
+})
+
+
+
+//Search functions
 function searchTitle(songy){
-    return String(songy.title).includes(enabled.value);
+
+    const titleCopy = String(songy.title).toLowerCase();
+
+    const title = songy.title;
+
+    if(titleCopy.includes(enabled.value.toLowerCase())){
+        return title;            
+    } 
+
 }
+
 function searchArtist(songy){
     return songy.artist.name == enabled.value;
 }
+
 function searchGenre(songy){
     return songy.genre.name == enabled.value;
 }
+
+// Drop down lists
 function artistList(){
         for(let art of artist){
             const artLi = document.getElementById("artist");
@@ -78,16 +252,9 @@ function genreList(){
         }
 }
 
-//Change this to take the song api thing 
+
 
 artistList();
 genreList();
 
-// Trying to make the filter work
-// function filter(event) {
-//     console.log("hello");
-//   }
-
-// const form = document.getElementById('form');
-// form.addEventListener('#filter', filter);
 });

@@ -5,11 +5,11 @@ const api = 'http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.p
 // Line 6 is to a tester
 // localStorage.clear(); 
 
-let getFile = [];
+let getFile = [];   
 
-if(localStorage.length > 0){
+if(localStorage.length != 0){
     getFile = localStorage.getItem('store');
-   
+    
 } else {
 
 
