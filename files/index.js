@@ -75,10 +75,10 @@ document.querySelector("#table").addEventListener("click", function(e){
 
         } else if (count == 1){
             list.sort(function(a,b){ 
-                if (b.title.toLowerCase() < a.title.toLowerCase()) {
+                if (String(b.title).toLowerCase() < String(a.title).toLowerCase()) {
                     return -1;
                   }
-                  if (b.title.toLowerCase() > a.title.toLowerCase()) {
+                  if (String(b.title).toLowerCase() > String(a.title).toLowerCase()) {
                     return 1;
                   }
                   return 0;
