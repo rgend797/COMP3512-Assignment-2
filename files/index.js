@@ -61,10 +61,10 @@ document.querySelector("#table").addEventListener("click", function(e){
         if(count == 0){
             
             list.sort(function(a,b){ 
-                if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                if (String(a.title).toLowerCase() < String(b.title).toLowerCase()) {
                     return -1;
                   }
-                  if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                  if (String(a.title).toLowerCase() > String(b.title).toLowerCase()) {
                     return 1;
                   }
                   return 0;
