@@ -6,7 +6,7 @@ const api = 'http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.p
 // localStorage.clear(); 
 
 let getFile = [];   
-
+// Change this, this doesn't work kekw
 if(localStorage.length != 0){
     getFile = localStorage.getItem('store');
     
