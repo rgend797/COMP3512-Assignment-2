@@ -264,6 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ],
         datasets: [
           {
+            label: song.title + ", by " + song.artist.name,
             data: [song.analytics.energy, song.analytics.danceability, song.analytics.liveness, song.analytics.valence, song.analytics.acousticness, song.analytics.speechiness],
             fill: true,
           },
