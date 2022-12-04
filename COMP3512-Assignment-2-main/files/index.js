@@ -264,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ],
         datasets: [
           {
-            label: "My First Dataset",
             data: [song.analytics.energy, song.analytics.danceability, song.analytics.liveness, song.analytics.valence, song.analytics.acousticness, song.analytics.speechiness],
             fill: true,
           },
