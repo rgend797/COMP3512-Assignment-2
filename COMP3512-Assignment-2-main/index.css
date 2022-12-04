@@ -1,0 +1,34 @@
+
+body {
+}
+
+main {
+    display: inline-flex;
+    width: 100%;
+}
+main div, header, footer {
+    background: grey;
+    margin: 5px;
+    padding: 5px;
+}
+nav {
+    border: 5px solid;
+    padding: 1em;
+    width: 300px;
+}
+input[type="search"], select {
+    position: absolute;
+    width: 200px;
+}
+div {
+    width: 100%;
+}
+.credit {
+    display: none;
+}
+input:hover + .credit, .credit:hover {
+    display: block;
+}
+.hidden {
+    display: none;
+}
