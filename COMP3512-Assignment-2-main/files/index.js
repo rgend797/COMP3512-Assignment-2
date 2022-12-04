@@ -24,7 +24,6 @@ let radar = [1, 1, 1, 1];
 let chart = document.getElementById("chart");
 // Below here is the search stuff
 document.addEventListener("DOMContentLoaded", function () {
-  
   //Filter
   form.addEventListener("change", function (e) {
     if (e.target.id == "search") {
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Filter
-  filter.addEventListener("click", function() {
+  filter.addEventListener("click", function () {
     if (enabled != null) {
       if (enabled.parentElement.parentElement && enabled.value != "") {
         if (enabled.id == "title") {
@@ -73,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //Sort 
+  //Sort
   columnHeader.addEventListener("click", function (e) {
     let result = "";
 
@@ -229,100 +228,127 @@ document.addEventListener("DOMContentLoaded", function () {
     a.innerHTML = result;
   });
 
-  a.addEventListener("click", function(e) {
-     if (e.target.nodeName == "TD") {
-         showSongInformation(e.target.parentElement.id);
-     }
+  a.addEventListener("click", function (e) {
+    if (e.target.nodeName == "TD") {
+      showSongInformation(e.target.parentElement.id);
+    }
   });
 });
 
-  //Tab function
-  function openTab(e){
-      searchPage.classList.add("hidden");
-      songPage.classList.add("hidden");
-      playlistPage.classList.add("hidden");
-      e.classList.remove("hidden");
-  }
-  //Song information function
-  function showSongInformation(e) {
-    openTab(songPage);
-    let song = songy.find(songy => songy.song_id == e);
-    chart.removeChild(chart.firstElementChild);
-    chart.appendChild(document.createElement("canvas"));
-    songInformation.innerHTML = song.title + ", " + song.artist.name + ", " + artist.find(id => id.id == song.artist.id).type + ", " + song.genre.name + ", " + song.year + ", " + song.details.duration;
-    songInfoList.innerHTML = "<li>Energy: " + song.analytics.energy + "</li><li>Danceability: " + song.analytics.danceability + "</li><li>Liveness: " + song.analytics.liveness + "</li><li>Valence: " + song.analytics.valence + "</li><li>Acousticness: " + song.analytics.acousticness + "</li><li>Speechiness: " + song.analytics.speechiness + "</li>";
-    radar = {
-      type: "radar",
-      data: {
-        labels: [
-          "Energy",
-          "Danceability",
-          "Liveness",
-          "Valence",
-          "Acousticness",
-          "Speechiness",
-        ],
-        datasets: [
-          {
-            label: song.title + ", by " + song.artist.name,
-            data: [song.analytics.energy, song.analytics.danceability, song.analytics.liveness, song.analytics.valence, song.analytics.acousticness, song.analytics.speechiness],
-            fill: true,
-          },
-        ],
-      },
-      options: {
-        elements: {
-          line: {
-            borderWidth: 3,
-          },
+//Tab function
+function openTab(e) {
+  searchPage.classList.add("hidden");
+  songPage.classList.add("hidden");
+  playlistPage.classList.add("hidden");
+  e.classList.remove("hidden");
+}
+//Song information function
+function showSongInformation(e) {
+  openTab(songPage);
+  let song = songy.find((songy) => songy.song_id == e);
+  chart.removeChild(chart.firstElementChild);
+  chart.appendChild(document.createElement("canvas"));
+  songInformation.innerHTML =
+    song.title +
+    ", " +
+    song.artist.name +
+    ", " +
+    artist.find((id) => id.id == song.artist.id).type +
+    ", " +
+    song.genre.name +
+    ", " +
+    song.year +
+    ", " +
+    song.details.duration;
+  songInfoList.innerHTML =
+    "<li>Energy: " +
+    song.analytics.energy +
+    "</li><li>Danceability: " +
+    song.analytics.danceability +
+    "</li><li>Liveness: " +
+    song.analytics.liveness +
+    "</li><li>Valence: " +
+    song.analytics.valence +
+    "</li><li>Acousticness: " +
+    song.analytics.acousticness +
+    "</li><li>Speechiness: " +
+    song.analytics.speechiness +
+    "</li>";
+  radar = {
+    type: "radar",
+    data: {
+      labels: [
+        "Energy",
+        "Danceability",
+        "Liveness",
+        "Valence",
+        "Acousticness",
+        "Speechiness",
+      ],
+      datasets: [
+        {
+          label: song.title + ", by " + song.artist.name,
+          data: [
+            song.analytics.energy,
+            song.analytics.danceability,
+            song.analytics.liveness,
+            song.analytics.valence,
+            song.analytics.acousticness,
+            song.analytics.speechiness,
+          ],
+          fill: true,
         },
-        scales: {
-          r: {
-            min: 0,
-          },
+      ],
+    },
+    options: {
+      scales: {
+        r: {
+          min: 0,
         },
       },
-    };
-    new Chart(chart.firstElementChild, radar);  }
-  //Search functions
-  function searchTitle(songy) {
-    const titleCopy = String(songy.title).toLowerCase();
+    },
+  };
+  new Chart(chart.firstElementChild, radar);
+}
+//Search functions
+function searchTitle(songy) {
+  const titleCopy = String(songy.title).toLowerCase();
 
-    const title = songy.title;
+  const title = songy.title;
 
-    if (titleCopy.includes(enabled.value.toLowerCase())) {
-      return title;
-    }
+  if (titleCopy.includes(enabled.value.toLowerCase())) {
+    return title;
   }
+}
 
-  function searchArtist(songy) {
-    return songy.artist.name == enabled.value;
+function searchArtist(songy) {
+  return songy.artist.name == enabled.value;
+}
+
+function searchGenre(songy) {
+  return songy.genre.name == enabled.value;
+}
+
+// Drop down lists
+function artistList() {
+  for (let art of artist) {
+    const artLi = document.getElementById("artist");
+    const opt = document.createElement("option");
+
+    opt.text = art.name;
+    artLi.add(opt);
   }
+}
 
-  function searchGenre(songy) {
-    return songy.genre.name == enabled.value;
+function genreList() {
+  for (let genres of genre) {
+    const genLi = document.getElementById("genre");
+    const opt = document.createElement("option");
+
+    opt.text = genres.name;
+    genLi.add(opt);
   }
+}
 
-  // Drop down lists
-  function artistList() {
-    for (let art of artist) {
-      const artLi = document.getElementById("artist");
-      const opt = document.createElement("option");
-
-      opt.text = art.name;
-      artLi.add(opt);
-    }
-  }
-
-  function genreList() {
-    for (let genres of genre) {
-      const genLi = document.getElementById("genre");
-      const opt = document.createElement("option");
-
-      opt.text = genres.name;
-      genLi.add(opt);
-    }
-  }
-
-  artistList();
-  genreList();
+artistList();
+genreList();
