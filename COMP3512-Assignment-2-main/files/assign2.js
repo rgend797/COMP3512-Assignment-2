@@ -7,7 +7,7 @@ const api = 'https://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.
 
 let getFile = [];   
 
-if(localStorage.length != 0){
+if(localStorage){
     getFile = localStorage.getItem('store');
     
 } else {
