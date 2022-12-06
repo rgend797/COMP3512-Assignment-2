@@ -190,6 +190,7 @@ function showSongInformation(e) {
 }
 //Favorite function
 function favorite(button){
+    openTab(playlistPage);
     if (button.value == "Clear Playlist"){
         favorites = [];
         favoriteBody.innerHTML = "";
