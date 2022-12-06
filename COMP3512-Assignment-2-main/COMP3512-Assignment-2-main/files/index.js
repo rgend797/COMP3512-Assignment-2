@@ -23,14 +23,6 @@ let radar = [1, 1, 1, 1];
 let chart = document.getElementById("chart");
 // Below here is the search stuff
 document.addEventListener("DOMContentLoaded", function () {
-    
-    
-    
-    list = songy;
-    filterBody.innerHTML = createSongList(list);
-    
-    
-    
   //Filter
   form.addEventListener("change", function (e) {
     if (e.target.id == "search") {
