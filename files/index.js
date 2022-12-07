@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const searchPage = document.getElementById("searchPage");
   const songPage = document.getElementById("songPage");
   const playlistPage = document.getElementById("playlistPage");
+  const clearPlay = document.querySelector("#playlistPage div input");
   const artist = JSON.parse(artistContent);
   const genre = JSON.parse(genreContent);
   const songy = await APIStuff();
@@ -136,6 +137,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
+  /**
+   * Handles the playlist and close view button. (They are the same).
+   */
+  clearPlay.addEventListener("click", () => {
+    favorite(clearPlay);
+  });
   /**
    * Creates a radar diagram of the desired song and list relevent statistics.
    * @param {int} id The song_id of the desired song.
