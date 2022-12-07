@@ -146,20 +146,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     let song = songy.find((songy) => songy.song_id == sid);
     chart.removeChild(chart.firstElementChild);
     chart.appendChild(document.createElement("canvas"));
+    
+    const songDurCal = (song.details.duration / 60);
+
     songInformation.innerHTML =
-      song.title + ", " +
-	  song.artist.name + ", " +
-	  artist.find((id) => id.id == song.artist.id).type + ", " +
-	  song.genre.name + ", " +
-	  song.year + ", " +
-	  song.details.duration;
+      "<h2 id='artName'>" +song.artist.name + "</h2>"+
+      "<h1 id='songTitle'>" + song.title + "</h1>" +
+	    "<div id='box1'><h3 class='song' id='artType'> " + artist.find((id) => id.id == song.artist.id).type + "</h3></div>" +
+      "<div id='box2'><h3 class='song' id='songGenre'> " + song.genre.name + "</h3></div>" +
+	    "<div id='box3'><h3 class='song' id='songYear'> " + song.year + "</h3></div>" +
+      "<div id='box4'><h3 class='song' id='songDur'> " + songDurCal.toFixed(2) + " Minutes</h3></div>";
     songInfoList.innerHTML =
-      "<li>Energy: " + song.analytics.energy +
-      ", </li><li>Danceability: " + song.analytics.danceability +
-      ", </li><li>Liveness: " + song.analytics.liveness +
-      ", </li><li>Valence: " + song.analytics.valence +
-      ", </li><li>Acousticness: " + song.analytics.acousticness +
-      ", </li><li>Speechiness: " + song.analytics.speechiness +
+      "<li class='categories'>Bpm: " + song.details.bpm +
+      " </li><li class='categories'>Energy: " + song.analytics.energy +
+      " </li><li class='categories'>Danceability: " + song.analytics.danceability +
+      " </li><li class='categories'>Liveness: " + song.analytics.liveness +
+      " </li><li class='categories'>Valence: " + song.analytics.valence +
+      " </li><li class='categories'>Acousticness: " + song.analytics.acousticness +
+      " </li><li class='categories'>Speechiness: " + song.analytics.speechiness +
+      " </li><li class='categories'>Popularity: " + song.details.popularity +
       "</li>";
     radar = {
       type: "radar",
@@ -188,6 +193,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         ],
       },
       options: {
+        color: "#ffffff",
         scales: {
           r: {
             min: 0,

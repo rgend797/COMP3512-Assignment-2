@@ -22,7 +22,7 @@ header{
     width: 100%;
     text-align: left;
     padding-top: 24px;
-    padding-bottom: 10px;
+    padding-bottom: 100px;
     
 }
 
@@ -41,7 +41,6 @@ a{
 #names{
     float:left;
     position: absolute;
-    width: 150px;
 
     font-style: normal;
     font-weight: 900;
@@ -55,7 +54,7 @@ a{
 #Homepage{
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 40px;
     line-height: 28px;
     letter-spacing: 1px;
 
@@ -69,12 +68,21 @@ a{
 
 .nav{
     float:right;
-    padding-right: 20px;
+    padding-right: 50px;
 }
 
+.credit {
+    display: none;
+}
+
+input[value="Credits"]:hover ~ .credit, .credit:hover {
+    display: inherit;
+    position: fixed;
+}
 
 /* Below here is the Body CSS */
-main{
+/* main{
+
     text-align: center;
     left: 100px;
     padding-left: 25px;
@@ -94,9 +102,247 @@ input{
 
 td, th {
     cursor: pointer;
+} */
+
+/* CSS for the Search */
+#searchPage{
+    text-align: center;
+    }
+    
+#form{
+    text-align: center;
+    }
+    
+#searchTitle{
+   
+    float: none;
+    font-family: 'Albert Sans';
+    font-style: normal; 
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 88px;
+    text-align: center;
+    letter-spacing: 2px;
+    
+}  
+
+/* Box background for search */
+#box{
+    display: flexbox;
+    font-family: 'Albert Sans';
+    float: none;
+    
+    width: 70vw;
+    height: auto;
+    
+    padding-top: 60px;
+    padding-bottom: 90px;
+    background-color: #433753;
+    border-radius: 48px;
+    margin: 30px auto;
+    
+}
+
+#titleBox{
+    margin-left: 5  px;
+    padding-bottom: 10px;
+}
+
+#artistBox{
+    margin-left: -5px;
+    padding-bottom: 10px;
+}
+
+#genreBox{
+    margin-left: -5px;
+    padding-bottom: 10px;
+}
+
+input[type=search]{
+    font-family: 'Albert Sans';
+    border-radius: 18px;
+    width: 31%;
+    height: 50%;
+    background-color: #433753;
+    color: white;
+    padding: 10px;
+    float: center;
+}
+
+select[id=artist]{
+    font-family: 'Albert Sans';
+    border-radius: 18px;
+    background-color: #433753;
+    color: white;
+    width: 30%;
+    height: 50%;
+    padding: 10px; 
+    float: center;
+
+}
+
+select[id=genre]{
+    font-family: 'Albert Sans';
+    border-radius: 18px;
+    background-color: #433753;
+    color: white;
+    width: 30%;
+    height: 50%;
+    padding: 10px; 
+    float: center;
+
+}
+
+/* Search Results CSS */
+#BroSrchResults{
+    float: none;
+    font-family: 'Albert Sans';
+    font-style: normal; 
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 88px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#columnHeader{
+    float:none;
+    text-align: left;
+    height: 1vw;
+    
+}
+
+#columnHeader > th{
+    float:none;
+    position: relative;
+    text-align: left;
+    font-size: 20px;
+    width: 20%;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+
+td{
+    float:none;
+    position: relative;
+    text-align: left;
+    font-size: 20px;
+    width: 20%;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+
+/* Song Page */
+#songH1{
+    text-align: center;
+}
+
+#songInfoList{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-auto-rows: minmax(100px, auto);
+    column-gap: 100px;
+    row-gap: 40px;
+    padding-left: 200px; 
+    /* padding-right: auto;   */
+}
+
+.categories{
+    position: relative;
+    border-radius: 20px;
+    
+    width: 170%;
+    height: 80px;
+    background:black; 
+    color: #FFFFFF;
+
+    font-family: 'Albert Sans';
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+
+    padding-top: 25%;
+}
+
+#artName{
+    font-family: 'Albert Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 25px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#songTitle{
+    font-family: 'Albert Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    margin-top: -5px;
+    text-align: center;
+
+}
+ 
+#box1{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+#box2{
+    display:inline-block;
+    padding-right: 10px;
+}
+#box3{
+    display:inline-block;
+    padding-right: 10px;
+    
+}
+#box4{
+    display:inline-block;
+}
+
+#songInformation{
+    text-align: center; 
+}
+
+.song{
+   display:inline-block; 
+    text-transform: uppercase;
+    font-size:14px;
+    text-align: center; 
+}
+
+#chartBackground{
+    display: flexbox;
+    font-family: 'Albert Sans';
+    /* float: right; */
+    
+    width: 35%;
+    height: 20%;
+    margin-left: 45%;
+    margin-top: -30%;
+    background-color: #433753;
+    border-radius: 20px;
+}
+#chart{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+/* CSS for Playlist page */
+
+.text{
+    padding-left: 50px;
 }
 
 /* Below this is footer */
+.footerbar{
+    padding-top: 20px;
+ }
 #footerline{
     
     float:left;
@@ -149,12 +395,4 @@ td, th {
     padding-top: 10px;
     padding-left: 5px;
 }
-header input {
-    margin-bottom: 0px;
-}
-.credit {
-    display: none;
-}
-input[value="Credits"]:hover ~ .credit, .credit:hover {
-    display: inherit;
-}
+

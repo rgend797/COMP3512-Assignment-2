@@ -3,44 +3,57 @@
 <html lang="en">
 <head>
    <meta charset="utf-8">
-   <title>Assignement 2</title>
+   <title>Assignment 2</title>
    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.js"></script>
     <script src="files/data/artists.json"></script>
     <script src="files/data/genres.json"></script>
     <script src="files/index.js"></script>
 </head>
 <body>
+
+
     <header>
-        Header
-        <input type=button id="page" value="Playlist">
-        <input type=button value="Credits">
-        <div class="credit"> Remi Gendron<br>Kato Ng<br><a href="https://github.com/rgend797/COMP3512-Assignment-2">Github</a></div>
+        <ul class="navbar">
+        <li id="names">Kato + Remi</li>
+        <li id="Homepage">Assignment 2</li>   
+        <li class="nav" id="playlist"><input type=button id="page" value="Playlist"></li>
+        <li class="nav" id="playlist"><input type=button value="Credits"> <br>
+        <div class="credit"> Remi Gendron<br>Kato Ng<br><a href="https://github.com/rgend797/COMP3512-Assignment-2" target="_blank">Github</a></div></li>
     </header>
+
         <main id="searchPage">
-            <div>
+            <div id="box">
                     <form id ="form">
-                        <h1>Basic Song Search</h1>
+                        <h1 id="searchTitle">SEARCH</h1>
+
+                        <div id="titleBox">
                         <input type=radio name="criteria" id="search"><label>Title</label>
-                        <input type="search" id="title" placeholder="Type here" disabled><br>
+                        <input type="search" id="title" placeholder="Type here" disabled> </div>
+                        
+                        <div id="artistBox">
                         <input type=radio name="criteria" id="search" ><label>Artist</label>
                         <select id="artist" disabled>
                             <!-- Option here-->
                             <option value="none" selected disabled hidden>Pick me</option>
-                        </select><br>
+                        </select>
+                        </div>
+
+                        <div id="genreBox">
                         <input type=radio name="criteria" id="search"><label>Genre</label>
                         <select id="genre" disabled>
                             <!-- Option here-->
                             <option value="none" selected disabled hidden>Pick me</option>
                         </select><br>
+                        </div>
 
                         <input id="filter" type=button onclick="" value="Filter">
-                        <input id="clear" type=button onclick="" value="Clear">
+                        <input id="clear" type=reset onclick="" value="Clear">
                         
                     </form>
             </div>
             <div>
-                <h1>Browse/Search Results</h1>
+                <h1 id="BroSrchResults">Browse/Search Results</h1>
                 <table id="filterTable">
                     <thead>
                     <tr id="columnHeader">
@@ -64,20 +77,26 @@
                 </table>
             </div>
         </main>
+
+
         <main id="songPage" class="hidden">
-            <div id="h1">
-                <h1>Song Information</h1>
+            <div id="SongStuff">
+                <!-- <h1 id="songH1">Song Information</h1> -->
                 <h2 id="songInformation"></h2>
-                <ul id="songInfoList"></ul>
+                <div><ul id="songInfoList"></ul>
             </div>
+            <div id="chartBackground">
             <div id="chart">
                 <canvas></canvas>
             </div>
+            </div>
         </main>
+
+
         <main id="playlistPage" class="hidden">
             <div>
-                <h1>Playlist Details</h1>
-                <span># of songs: </span>
+                <h1 class="text">Playlist Details</h1>
+                <span class="text"># of songs: </span>
                 <input type="button" onClick="favorite(this);" value="Clear Playlist">
                 <table id="favoriteTable">
                     <thead>
@@ -87,7 +106,7 @@
                         <th>Year</th>
                         <th>Genre</th>
                         <th>Popularity</th>
-                        <th>Add to Favorites</th>
+                        <th>Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -103,7 +122,19 @@
             </div>
         </main>
     </body>
+
     <footer>
-        Footer
+        <ul class="footerbar">
+        <hr>
+        <li id="footerline">COMP 3512 WEB II </li>
+        <li id="Assignment">Assignment 2</li>
+        <li id="copyright">© 2022 Kato Ng & Remi Gendron</li>   
+
+        <!-- Bottom Right  Github stuffs -->
+        <!-- Logo By Github -->
+        <li class="GithubLink"><a href="https://github.com/rgend797" target="_blank" ><img src="Images/Github.png"><p> Remi Gendron</p></a></li>
+        <li class="GithubLink"><a href="https://github.com/katon1" target="_blank" ><img src="Images/Github.png"><p> Kato Ng</p></a></li>
+        <li class="GithubLink"><a href="https://github.com/rgend797/COMP3512-Assignment-2" target="_blank" ><img src="Images/Github.png"><p> Github Repo</p></a></li>    
+        </ul>    
     </footer>
 </html>
