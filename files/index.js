@@ -200,7 +200,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         ],
       },
       options: {
-        color: "#ffffff",
         scales: {
           r: {
             min: 0,

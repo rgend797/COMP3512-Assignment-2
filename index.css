@@ -81,28 +81,7 @@ input[value="Credits"]:hover ~ .credit, .credit:hover {
 }
 
 /* Below here is the Body CSS */
-/* main{
 
-    text-align: center;
-    left: 100px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-form{
-    display:inline-block;
-    text-align:left;
-    
-}
-
-input{
-    margin-bottom: 15px; 
-    cursor: pointer;
-}
-
-td, th {
-    cursor: pointer;
-} */
 
 /* CSS for the Search */
 #searchPage{
@@ -323,7 +302,7 @@ td{
     height: 20%;
     margin-left: 45%;
     margin-top: -30%;
-    background-color: #433753;
+    background-color: #ffffff;
     border-radius: 20px;
 }
 #chart{
