@@ -56,6 +56,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   });
 
+  // Clear's the search results
+  clear.addEventListener("click", () => {
+    list = "";
+    filterBody.innerHTML = createSongList(list);
+  }); 
+
+
   /**
    * Sorts and displays the songs in ascending or descending order of the criteria clicked.
    * @param {HTML Element} e The chosen sort criteria.
